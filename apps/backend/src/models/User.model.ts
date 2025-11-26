@@ -13,12 +13,14 @@ const userSchema = new Schema<UserDocument>(
         },
         email: {
             type: String,
-            sparse: true,
+            required: true,
+            unique: true,
             lowercase: true,
+            index: true,
         },
         phone: {
             type: String,
-            required: true,
+            sparse: true,
             unique: true,
             index: true,
         },
@@ -50,3 +52,4 @@ const userSchema = new Schema<UserDocument>(
 );
 
 export const UserModel = mongoose.model<UserDocument>('User', userSchema);
+export default UserModel;

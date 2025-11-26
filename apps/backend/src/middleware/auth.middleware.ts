@@ -24,11 +24,19 @@ export const authenticate = async (
 
         const token = authHeader.split(' ')[1];
 
-        // Verify JWT token
-        const decoded = jwt.verify(token, config.jwt.secret) as AuthTokenPayload;
+        // Verify Firebase ID token
+        const decodedToken = await firebaseAuth.verifyIdToken(token);
+
+        // Get user from database to ensure we have the role
+        const user = await UserModel.findOne({ firebaseUid: decodedToken.uid });
 
         // Attach user info to request
-        req.user = decoded;
+        req.user = {
+            uid: decodedToken.uid,
+            email: decodedToken.email,
+            role: user?.role || 'user',
+            ...decodedToken
+        } as any;
 
         next();
     } catch (error) {

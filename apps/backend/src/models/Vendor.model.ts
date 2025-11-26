@@ -55,7 +55,6 @@ const vendorSchema = new Schema<VendorDocument>(
         serviceAreas: [{
             type: String,
             required: true,
-            index: true,
         }],
         packages: [packageSchema],
         gallery: [{ type: String }],
@@ -92,7 +91,7 @@ const vendorSchema = new Schema<VendorDocument>(
 );
 
 // Indexes for search
-vendorSchema.index({ 'address.city': 1, categories: 1, rating: -1 });
-vendorSchema.index({ serviceAreas: 1, categories: 1 });
+vendorSchema.index({ 'address.city': 1, rating: -1 });
 
 export const VendorModel = mongoose.model<VendorDocument>('Vendor', vendorSchema);
+export default VendorModel;

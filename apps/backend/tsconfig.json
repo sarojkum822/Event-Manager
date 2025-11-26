@@ -20,6 +20,9 @@
         "paths": {
             "@/*": [
                 "src/*"
+            ],
+            "@event-planner/shared": [
+                "../../packages/shared/dist/index.d.ts"
             ]
         }
     },
