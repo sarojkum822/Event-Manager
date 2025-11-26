@@ -5,7 +5,7 @@ services:
     env: node
     plan: free
     buildCommand: pnpm install && pnpm run build
-    startCommand: node apps/backend/dist/index.js
+    startCommand: node apps/backend/dist/apps/backend/src/index.js
     envVars:
       - key: NODE_ENV
         value: production
