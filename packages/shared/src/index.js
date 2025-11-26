@@ -15,7 +15,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./types/common.types"), exports);
+__exportStar(require("./types/user.types"), exports);
 __exportStar(require("./types/vendor.types"), exports);
 __exportStar(require("./types/booking.types"), exports);
+__exportStar(require("./types/payment.types"), exports);
+__exportStar(require("./types/review.types"), exports);
 __exportStar(require("./schemas/user.schemas"), exports);
 __exportStar(require("./constants"), exports);
