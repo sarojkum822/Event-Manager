@@ -22,7 +22,7 @@
                 "src/*"
             ],
             "@event-planner/shared": [
-                "../../packages/shared/dist/index.d.ts"
+                "../../packages/shared/src/index.ts"
             ]
         }
     },
