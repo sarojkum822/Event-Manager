@@ -1,13 +1,25 @@
 services:
+  # Backend Service
   - type: web
     name: event-planner-backend
     env: node
     plan: free
-    buildCommand: pnpm install && pnpm --filter @event-planner/backend build
+    buildCommand: pnpm install && pnpm run build
     startCommand: node apps/backend/dist/index.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 10000
-    autoDeploy: true
+    autoDeploy: false
+
+  # Frontend Service (Optional, Vercel is recommended for Next.js)
+  - type: web
+    name: event-planner-frontend
+    env: node
+    plan: free
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm --filter frontend start
+    envVars:
+      - key: NODE_ENV
+        value: production

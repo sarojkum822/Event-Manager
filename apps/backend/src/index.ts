@@ -61,4 +61,10 @@ const startServer = async () => {
     }
 };
 
-startServer();
+// Export app for Vercel
+export default app;
+
+// Start server only if run directly (not imported)
+if (require.main === module) {
+    startServer();
+}
